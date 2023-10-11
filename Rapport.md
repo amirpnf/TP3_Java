@@ -110,7 +110,7 @@ As you can see, the second constructor uses the keyword `this` to refer to the
 first one.
 
  ----- 
- 
+
 Comment faire alors ? (indice comme `String.toUpperCase`)
 Écrire le code correspondant et ajouter un code de test dans le main. 
 
@@ -125,3 +125,30 @@ public Book withTitle(String title) {
 ```
 So the return type of our method will change to `Book`, and actually we are creating a new instance of the book class, assigning the value given as the 
 argument of our method, to the its first field.
+
+
+# Exercise 2
+
+1. Qu'affiche le code ci-dessous ?
+```java
+    var b1 = new Book("Da Java Code", "Duke Brown");
+    var b2 = b1;
+    var b3 = new Book("Da Java Code", "Duke Brown");
+
+    System.out.println(b1 == b2);
+    System.out.println(b1 == b3);
+```
+Pourquoi ?
+
+ -----
+
+The code above would have a result like this in the terminal :
+```bash
+true
+false
+```
+
+that's because for the `==` operator compares the addresses, not values, when used with objects (instances of a class). When we write `var b2 = b1;`, that doesn't mean that we are creating a new instance of the `Book` class, but it signifies that we are assigning the address of the object `b1` to `b2`.
+So when these two are compared using `==`, the result will always be `true`, because they have the same address.
+
+But this wouldn't be true for `b3`, because this last one is a new instance of the `Book` class, and although it has the exact same values in its fields, when compared to `b1` using the `==` operator, the result will always be false, as it's a new instance and has a totally new address, different than that of `b1`.
