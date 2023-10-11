@@ -20,17 +20,21 @@ public record Book(String title, String author) {
 Expliquer 
 
  ------   
+
 Here wen can access `Book`'s fields using `.` followed by the name of the field, without parentheses, because we are inside the record, we don't need
 to use accessors. As a consequence, this code runs without any problem.
+
  ------
 
 3. If we use the tow lines above in another file called `Main.java`, containing a class named `main`, we will have a specific error :
 ```bash
 Main.java:4: error: title has private access in Book
 ```
+
 That's because, outside the `Book` record, the fields aren't accessible.
 In order to correct this error, we ought to use parentheses after the 
 fields' names.
+
  -----
 ```java
   var book = new Book("Da Vinci Code", "Dan Brown");
@@ -44,6 +48,7 @@ var weirdBook = new Book(null, "oops");
 ```       
 
 Comment faire pour éviter ce problème sachant qu'il existe une méthode static requireNonNull dans la classe java.util.Objects.
+
  -----
 First of all, we should import `java.util.Objects` Package.
 Secondly, we have to create a constructor for this record.
@@ -103,7 +108,9 @@ public record  Book(String title, String author){
  ```
 As you can see, the second constructor uses the keyword `this` to refer to the 
 first one.
+
  ----- 
+ 
 Comment faire alors ? (indice comme `String.toUpperCase`)
 Écrire le code correspondant et ajouter un code de test dans le main. 
 
