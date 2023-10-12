@@ -10,9 +10,9 @@ public class Pebble {
   private static int indexOfMin(int[] array) {
     var min = 0;
     for(var i = 0; i < array.length; i++) {
-        if(array[i] < array[min]) {
-            min = i;
-        }
+      if(array[i] < array[min]) {
+        min = i;
+      }
     }
     return min;
   }
@@ -39,7 +39,7 @@ public class Pebble {
   public static void main(String[] args) {
     int[] array = new int[5];
     for(var i = 5; i > 0 ; --i) {
-        array[5 - i] = i;
+      array[5 - i] = i;
     }
     swap(array, 2, 3);
     System.out.println(Arrays.toString(array));
