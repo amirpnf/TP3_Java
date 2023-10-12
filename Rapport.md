@@ -69,6 +69,7 @@ public record  Book(String title, String author){
 
   public Book(String title, String author) {
     Objects.requireNonNull(title, "Title can't be empty");
+    Objects.requireNonNull(author, "Author can't be empty");
     this.title = title;
     this.author = author;
   }
@@ -296,7 +297,7 @@ Here's an exmaple of that:
 
   @Override
   public boolean equals(Book other) {
-    return (this.title.equals(other.title) && this.author.equals(other.author)); 
+    return title.equals(other.title) && author.equals(other.author); 
   }
   
   public static void main(String[] args) {
