@@ -47,6 +47,9 @@ fields' names.
  -----
 
 4. On peut remarquer que le code permet de créer des livres ayant un titre ou un auteur null.
+
+ -----
+ 
 ```java 
 var weirdBook = new Book(null, "oops");
 ```       
@@ -82,6 +85,7 @@ public record  Book(String title, String author){
 
 **Answer** : In a compact constructor, you won't need to list all of the arguments.
 Let's rewrite the code above using this type of constructor : 
+
  -----
 ```java
 import java.util.*;
@@ -103,6 +107,7 @@ public record  Book(String title, String author){
 On initialisera le champ author avec "<no author>" dans ce cas. 
 
 **Answer** : We've added another constructor to the `Book` record. Here's the code :
+
  -----
  ```java
  import java.util.*;
@@ -246,3 +251,59 @@ Here we ought to use it because we have the intention to introduce a new definit
 
 ## Exercise 3
 
+Au lieu d'utiliser un record, un étudiant qui aime bien ré-inventer la roue à écrit le code suivant
+```java
+public class Book2 {
+  private final String title;
+  private final String author;
+
+  public Book2(String title, String author) {
+    this.title = title;
+    this.author = author;
+  }
+  
+  public static void main(String[] args) {
+    var book1 = new Book2("Da Vinci Code", "Dan Brown");
+    var book2 = new Book2("Da Vinci Code", "Dan Brown");
+    System.out.println(book1.equals(book2));
+  }
+}
+```
+Malheureusement, le main n'a pas le comportement attendu. 
+
+
+1. Quel est le problème ? 
+
+**Answer** : This student has decided to use a class instead of a record, to define `Book`.
+The problem is, he's used the `equals()` method, without having defined it in the class. This method is automatically defined in records, but it should be overridden in a class, using the `@Override` directive.
+
+2. Comment corriger le problème si on s'entête à utiliser une classe ?
+Ne m'oubliez pas le @Override SVP ! 
+
+**Answer** : He can correct this mistake and solve this problem by overriding the `toString()` method in his class, without forgetting `@Override` of course.
+Here's an exmaple of that:
+
+ -----
+ ```java
+ public class Book2 {
+  private final String title;
+  private final String author;
+
+  public Book2(String title, String author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  @Override
+  public boolean equals(Book other) {
+    return (this.title.equals(other.title) && this.author.equals(other.author)); 
+  }
+  
+  public static void main(String[] args) {
+    var book1 = new Book2("Da Vinci Code", "Dan Brown");
+    var book2 = new Book2("Da Vinci Code", "Dan Brown");
+    System.out.println(book1.equals(book2));
+  }
+}
+ ```
+ -----
