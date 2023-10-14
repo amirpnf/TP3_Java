@@ -354,7 +354,7 @@ public static void sort(int[] array) {
 }
 ```
 
-Finally, here's the whole `Pebble` class, in which all of these method are implemented and defined.
+Finally, here's the whole `Pebble` class, in which all of these methods are implemented and defined.
 ```java
 import java.util.Arrays;
 
