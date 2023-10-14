@@ -66,7 +66,7 @@ public record  Book(String title, String author){
 
 5. En fait, on peut simplifier le code que vous avez écrit à la question précédente en utilisant un constructeur compact (compact constructor). Commenter le code précédent et utiliser un constructor compact à la place. 
 
-**Answer** In a compact constructor, you won't need to list all of the arguments.
+**Answer** : In a compact constructor, you won't need to list all of the arguments.
 Let's rewrite the code above using this type of constructor : 
  -----
 ```java
