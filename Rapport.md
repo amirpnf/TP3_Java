@@ -4,7 +4,7 @@
 
 1. Déclarer un record Book avec les composants `title` et `author`.
 
-**Answer ** : Here's a `Book` record in Java having two separate fields : `title` and `author`.
+**Answer** : Here's a `Book` record in Java having two separate fields : `title` and `author`.
 ```java
 public record Book(String title, String author) {
     
@@ -18,7 +18,7 @@ public record Book(String title, String author) {
 ```     
 Expliquer.  
 
-**Answer** : Here wen can access `Book`'s fields using `.` followed by the name of the field, without parentheses, because we are inside the record, we don't need
+**Answer** : Here we can access `Book`'s fields using `.` followed by the name of the field, without parentheses, because we are inside the record, we don't need
 to use accessors. As a consequence, this code runs without any problem.
 
 
@@ -66,7 +66,7 @@ public record  Book(String title, String author){
 
 5. En fait, on peut simplifier le code que vous avez écrit à la question précédente en utilisant un constructeur compact (compact constructor). Commenter le code précédent et utiliser un constructor compact à la place. 
 
-**Answer**In a compact constructor, you won't need to list all of the arguments.
+**Answer** In a compact constructor, you won't need to list all of the arguments.
 Let's rewrite the code above using this type of constructor : 
  -----
 ```java
@@ -159,8 +159,6 @@ But this wouldn't be true for `b3`, because this last one is a new instance of t
 2. Comment faire pour tester si deux objets ont le même contenu ?
 Écrire le code qui affiche si b1 et b2, puis b1 et b3 ont le même contenu. 
 
- -----
-
  **Answer** : We can compare the contents of two different instances of a record by using `equals()` method, this method is automatically defind by Java in records. But in a class, this method should be defined manually.
  As mentionned before, `Book` is a record, so it contains automatically the `equals()` method, we are going to use that :
  ```java
@@ -175,17 +173,14 @@ But this wouldn't be true for `b3`, because this last one is a new instance of t
   }
 }
  ```
- ----- 
 
 3. Écrire une méthode isFromTheSameAuthor() qui renvoie vrai si deux livres sont du même auteur.
 Et vérifier avec les deux livres suivants :
 
- -----
 ```java
   var book1 = new Book("Da Vinci Code", "Dan Brown");
   var book2 = new Book("Angels & Demons", new String("Dan Brown"));
 ```
- -----       
 
 **Answer** : Here's the requested `isFromTheSameAuthor()` :
 ```java
@@ -200,12 +195,10 @@ public boolean isFromTheSameAuthor(Book other) {
 Notice that we compare two strings here using the `equals()` method, considering that we need to compare their content, not their location in memory.
 
 4. Comment faire pour que le code suivant
- -----
 ```java
   var javaBook = new Book("Da Java Code", "Duke Brown");
   System.out.println(javaBook);
 ```
- -----       
 
 affiche
 
@@ -223,14 +216,12 @@ public String toString() {
 
 5. Utiliser l'annotation @Override (java.lang.Override) sur la méthode ajoutée à Book.
 **Answer** : 
- -----
  ```java
  @Override
   public String toString() {
     return this.title + " by " + this.author;
   }
  ```
- -----
 
 6. A quoi sert l'annotation @Override ? 
 
