@@ -86,7 +86,7 @@ public record  Book(String title, String author){
 ``` 
 
 6. Écrire un autre constructeur qui prend juste un titre et pas d'auteur et ajouter un code de test dans le main.
-On initialisera le champ author avec "<no author>" dans ce cas. 
+On initialisera le champ author avec `<no author>` dans ce cas. 
  
 **Answer** : We've added another constructor to the `Book` record. Here's the code :
 ```java
